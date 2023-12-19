@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AdressBook_Console.Models;               
-                                                  //Här kunde vi lagt interfacet istället om vi vill hålla nere på filer. 
+                                                  
 public class Contact : IContact
 {
 

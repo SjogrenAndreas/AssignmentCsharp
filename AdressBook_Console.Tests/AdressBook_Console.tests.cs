@@ -4,7 +4,7 @@ using AdressBook_Console.Models;
 public class ContactTests
 {
     [Fact]
-    public void ContactConstructor_InitializeProperties()
+    public void AddToList_ShouldAddContactToList_ThenReturnTrue()
     {
         // Arrange
         var id = Guid.NewGuid();

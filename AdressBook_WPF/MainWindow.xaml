@@ -1,0 +1,18 @@
+﻿<Window x:Class="AdressBook_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdressBook_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button Content="Add Contact" Command="{Binding AddContactCommand}"/>
+            <Button Content="View All Contacts" Command="{Binding ViewAllContactsCommand}"/>
+            <Button Content="Search Contact" Command="{Binding SearchContactCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -19,6 +19,9 @@ namespace AdressBook_WPF
         public MainWindow()
         {
             InitializeComponent();
+            var viewModel = new MainViewModel();
+            viewModel.MainFrame = MainFrame; // Sätt MainFrame
+            DataContext = viewModel;
         }
     }
 }

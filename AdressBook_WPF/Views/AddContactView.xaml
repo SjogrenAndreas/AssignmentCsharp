@@ -1,0 +1,65 @@
+﻿<Window x:Class="AdressBook_WPF.Views.AddContactView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Contact" Height="500" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- First Name Label -->
+            <RowDefinition Height="Auto"/>
+            <!-- First Name TextBox -->
+            <RowDefinition Height="Auto"/>
+            <!-- Last Name Label -->
+            <RowDefinition Height="Auto"/>
+            <!-- Last Name TextBox -->
+            <RowDefinition Height="Auto"/>
+            <!-- Email Label -->
+            <RowDefinition Height="Auto"/>
+            <!-- Email TextBox -->
+            <RowDefinition Height="Auto"/>
+            <!-- Phone Number Label -->
+            <RowDefinition Height="Auto"/>
+            <!-- Phone Number TextBox -->
+            <RowDefinition Height="Auto"/>
+            <!-- Street Name Label -->
+            <RowDefinition Height="Auto"/>
+            <!-- Street Name TextBox -->
+            <RowDefinition Height="Auto"/>
+            <!-- Postal Code Label -->
+            <RowDefinition Height="Auto"/>
+            <!-- Postal Code TextBox -->
+            <RowDefinition Height="Auto"/>
+            <!-- City Label -->
+            <RowDefinition Height="Auto"/>
+            <!-- City TextBox -->
+            <RowDefinition Height="40"/>
+            <!-- Buttons Panel -->
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="First Name" Grid.Row="0" Margin="5"/>
+        <TextBox x:Name="FirstNameTextBox" Grid.Row="1" Margin="5"/>
+
+        <TextBlock Text="Last Name" Grid.Row="2" Margin="5"/>
+        <TextBox x:Name="LastNameTextBox" Grid.Row="3" Margin="5"/>
+
+        <TextBlock Text="Email" Grid.Row="4" Margin="5"/>
+        <TextBox x:Name="EmailTextBox" Grid.Row="5" Margin="5"/>
+
+        <TextBlock Text="Phone Number" Grid.Row="6" Margin="5"/>
+        <TextBox x:Name="PhoneNumberTextBox" Grid.Row="7" Margin="5"/>
+
+        <TextBlock Text="Street Name" Grid.Row="8" Margin="5"/>
+        <TextBox x:Name="StreetNameTextBox" Grid.Row="9" Margin="5"/>
+
+        <TextBlock Text="Postal Code" Grid.Row="10" Margin="5"/>
+        <TextBox x:Name="PostalCodeTextBox" Grid.Row="11" Margin="5"/>
+
+        <TextBlock Text="City" Grid.Row="12" Margin="5"/>
+        <TextBox x:Name="CityTextBox" Grid.Row="13" Margin="5"/>
+
+        <StackPanel Grid.Row="14" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <Button Content="Save" Margin="5" Width="80" Command="{Binding SaveCommand}"/>
+            <Button Content="Cancel" Margin="5" Width="80" Command="{Binding CancelCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

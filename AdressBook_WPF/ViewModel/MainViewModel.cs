@@ -1,50 +1,57 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Windows.Controls; // Används för att hantera Frame-navigering
-using System; // För EventHandler
 using AdressBook_WPF.Models;
 using AdressBook_WPF.Views;
-using AdressBook_WPF.ViewModel;
+using AdressBook_WPF.Services;
+using System.Windows.Controls;
+using System;
 
 namespace AdressBook_WPF.ViewModel
 {
-    // MainViewModel ärver från ObservableObject för att stödja data bindning
     public partial class MainViewModel : ObservableObject
     {
-        // Property för Frame som kommer att användas för navigering
+        private readonly AddressBookService _addressBookService;
+
         public Frame MainFrame { get; set; }
 
-        // Konstruktor
         public MainViewModel()
         {
-            // Initiera commands här om det behövs
+            _addressBookService = new AddressBookService();
         }
 
-        // Command för att öppna AddContactView
-        [ICommand]
+        [RelayCommand]
         private void OpenAddContactView()
         {
-            var view = new AddContactView(); // Ersätt med din faktiska vy
-            view.DataContext = new AddContactViewModel(); // Ersätt med din faktiska ViewModel
-            MainFrame.Navigate(view); // Navigerar till den angivna vyn
+            var view = new AddContactView();
+            view.DataContext = new AddContactViewModel(_addressBookService);
+            MainFrame.Navigate(view);
         }
 
-        // Command för att öppna ViewAllContactsView
-        [ICommand]
+        [RelayCommand]
         private void OpenViewAllContactsView()
         {
-            var view = new ViewAllContactsView(); // Ersätt med din faktiska vy
-            view.DataContext = new ViewAllContactsViewModel(); // Ersätt med din faktiska ViewModel
-            MainFrame.Navigate(view); // Navigerar till den angivna vyn
+            var view = new ViewAllContactsView();
+            view.DataContext = new ViewAllContactsViewModel(_addressBookService, NavigateToShowDetails, NavigateToMain);
+            MainFrame.Navigate(view);
         }
 
-        // Command för att öppna SearchContactView
-        [ICommand]
+        [RelayCommand]
         private void OpenSearchContactView()
         {
-            var view = new SearchContactView(); // Ersätt med din faktiska vy
-            view.DataContext = new SearchContactViewModel(); // Ersätt med din faktiska ViewModel
-            MainFrame.Navigate(view); // Navigerar till den angivna vyn
+            var view = new SearchContactView();
+            view.DataContext = new SearchContactViewModel(_addressBookService, NavigateToShowDetails, NavigateToMain);
+            MainFrame.Navigate(view);
+        }
+
+        private void NavigateToShowDetails(Contact contact)
+        {
+            var view = new ContactDetailsView(contact);
+            MainFrame.Navigate(view);
+        }
+
+        private void NavigateToMain()
+        {
+            MainFrame.Navigate(new MainWindow());
         }
     }
 }

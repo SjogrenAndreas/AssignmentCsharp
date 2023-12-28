@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AdressBook_WPF.Models;
+using AdressBook_WPF.Services;
+using AdressBook_WPF.ViewModel;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace AdressBook_WPF.Views
 {
-    /// <summary>
-    /// Interaction logic for ContactDetailsView.xaml
-    /// </summary>
     public partial class ContactDetailsView : Window
     {
-        public ContactDetailsView()
+        public ContactDetailsView(Contact contact, AddressBookService addressBookService)
         {
             InitializeComponent();
+            var viewModel = new ContactDetailsViewModel(contact, addressBookService, NavigateToEditContact);
+            this.DataContext = viewModel;
+            viewModel.CloseAction = Close;
+        }
+
+        private void NavigateToEditContact(Contact contact, AddressBookService addressBookService)
+        {
+            var editView = new EditContactView(addressBookService, contact);
+            editView.ShowDialog();
         }
     }
 }

@@ -23,13 +23,13 @@ public partial class ViewAllContactsViewModel : ObservableObject
 
     public ObservableCollection<Contact> Contacts { get; }
 
-    [ICommand]
+    [RelayCommand]
     private void ShowDetails(Contact contact)
     {
         _navigateToShowDetails?.Invoke(contact);
     }
 
-    [ICommand]
+    [RelayCommand]
     private void GoBackToMain()
     {
         _goBackToMain?.Invoke();

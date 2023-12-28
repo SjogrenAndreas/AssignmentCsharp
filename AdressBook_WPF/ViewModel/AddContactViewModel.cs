@@ -35,7 +35,7 @@ public partial class AddContactViewModel : ObservableObject
     [ObservableProperty]
     private string city;
 
-    [ICommand]
+    [RelayCommand]
     private void Save()
     {
         var newContact = new Contact
@@ -53,7 +53,7 @@ public partial class AddContactViewModel : ObservableObject
         CloseAction?.Invoke(); // Stänger fönstret efter att ha sparat kontakten
     }
 
-    [ICommand]
+    [RelayCommand]
     private void Cancel()
     {
         CloseAction?.Invoke(); // Stänger fönstret utan att spara

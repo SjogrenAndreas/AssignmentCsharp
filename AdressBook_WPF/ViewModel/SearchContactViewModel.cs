@@ -24,7 +24,7 @@ public partial class SearchContactViewModel : ObservableObject
     [ObservableProperty]
     private string _emailToSearch;
 
-    [ICommand]
+    [RelayCommand]
     private void Search()
     {
         var foundContact = _addressBookService.GetAllContacts()
@@ -39,7 +39,7 @@ public partial class SearchContactViewModel : ObservableObject
         }
     }
 
-    [ICommand]
+    [RelayCommand]
     private void Cancel()
     {
         _navigateToMain?.Invoke();

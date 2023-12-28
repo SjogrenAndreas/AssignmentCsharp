@@ -19,21 +19,21 @@ public partial class EditContactViewModel : ObservableObject
     [ObservableProperty]
     private Contact _contact;
 
-    [ICommand]
+    [RelayCommand]
     private void SaveEdit()
     {
         _addressBookService.UpdateContact(Contact);
         CloseAction?.Invoke(); // Stänger fönstret
     }
 
-    [ICommand]
+    [RelayCommand]
     private void RemoveContact()
     {
         _addressBookService.DeleteContact(Contact);
         CloseAction?.Invoke(); // Stänger fönstret
     }
 
-    [ICommand]
+    [RelayCommand]
     private void Cancel()
     {
         CloseAction?.Invoke(); // Stänger fönstret utan att spara

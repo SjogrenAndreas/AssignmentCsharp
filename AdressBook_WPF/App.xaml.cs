@@ -1,4 +1,5 @@
 ﻿using AdressBook_WPF.ViewModel;
+using AdressBook_WPF.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Configuration;
@@ -21,6 +22,16 @@ namespace AdressBook_WPF
                 {
                     services.AddSingleton<MainWindow>();
                     services.AddSingleton<MainViewModel>();
+                    services.AddSingleton<AddContactView>();
+                    services.AddSingleton<AddContactViewModel>();
+                    services.AddSingleton<ContactDetailsView>();
+                    services.AddSingleton<ContactDetailsViewModel>();
+                    services.AddSingleton<EditContactView>();
+                    services.AddSingleton<EditContactViewModel>();
+                    services.AddSingleton<SearchContactView>();
+                    services.AddSingleton<SearchContactViewModel>();
+                    services.AddSingleton<ViewAllContactsView>();
+                    services.AddSingleton<ViewAllContactsViewModel>();
                 })
                 .Build();
         }

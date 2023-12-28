@@ -4,15 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdressBook_WPF"
+        
+        xmlns:models ="clr-namespace:AdressBook_WPF.Models"
+        xmlns:viewmodels ="clr-namespace:AdressBook_WPF.ViewModel"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        
         mc:Ignorable="d"
         Title="MainWindow" Height="250" Width="300">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="Add Contact" Command="{Binding OpenAddContactWindowCommand}"/>
-            <Button Content="View All Contacts" Command="{Binding ViewAllContactsCommand}"/>
-            <Button Content="Search Contact" Command="{Binding SearchContactCommand}"/>
+            <Button Content="Add Contact" Margin="5" Command="{Binding OpenAddContactViewCommand}"/>
+            <Button Content="View All Contacts" Margin="5" Command="{Binding OpenViewAllContactsViewCommand}"/>
+            <Button Content="Search Contact" Margin="5" Command="{Binding OpenSearchContactViewCommand}"/>
         </StackPanel>
     </Grid>
 </Window>

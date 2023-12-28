@@ -45,7 +45,7 @@ namespace AdressBook_WPF.ViewModel
 
         private void NavigateToShowDetails(Contact contact)
         {
-            var view = new ContactDetailsView(contact);
+            var view = new ContactDetailsView(contact, _addressBookService);
             MainFrame.Navigate(view);
         }
 

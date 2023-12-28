@@ -42,6 +42,9 @@
         <TextBlock Text="City" Grid.Row="12" Margin="5"/>
         <TextBlock Text="{Binding Contact.City}" Grid.Row="13" Margin="5"/>
 
-        <Button Content="Back" Command="{Binding GoBackCommand}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="14" Margin="10"/>
+        <StackPanel Grid.Row="14" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <Button Content="Back" Margin="5" Width="80" Command="{Binding GoBackCommand}"/>
+            <Button Content="Edit Contact" Margin="5" Width="100" Command="{Binding EditContactCommand}"/>
+        </StackPanel>
     </Grid>
 </Window>

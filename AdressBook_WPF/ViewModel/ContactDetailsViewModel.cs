@@ -1,16 +1,18 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using AdressBook_WPF.Models;
-using AdressBook_WPF.ViewModel;
-using AdressBook_WPF.Services;
 using System;
-
+using System.Windows;
 
 public partial class ContactDetailsViewModel : ObservableObject
 {
-    public ContactDetailsViewModel(Contact contact)
+    private readonly Action<Contact> _navigateToEditContact;
+    public Action CloseAction { get; set; } // En action för att stänga fönstret
+
+    public ContactDetailsViewModel(Contact contact, Action<Contact> navigateToEditContact)
     {
         Contact = contact;
+        _navigateToEditContact = navigateToEditContact;
     }
 
     [ObservableProperty]
@@ -22,5 +24,10 @@ public partial class ContactDetailsViewModel : ObservableObject
         CloseAction?.Invoke(); // Stänger fönstret och går tillbaka
     }
 
-    public Action CloseAction { get; set; } // En action för att stänga fönstret
+    [ICommand]
+    private void EditContact()
+    {
+        _navigateToEditContact?.Invoke(Contact); // Navigerar till EditContactView med den nuvarande kontakten
+        CloseAction?.Invoke(); // Stänger ContactDetailsView
+    }
 }

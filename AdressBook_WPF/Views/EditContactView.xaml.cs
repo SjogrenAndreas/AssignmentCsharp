@@ -1,5 +1,4 @@
-﻿using AdressBook_WPF.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,23 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using AdressBook_WPF.Models;
+using AdressBook_WPF.Services;
 
 namespace AdressBook_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for AddContactView.xaml
+    /// Interaction logic for EditContactView.xaml
     /// </summary>
-    public partial class AddContactView : Window
+    public partial class EditContactView : Window
     {
-        public AddContactView()
+        public EditContactView(AddressBookService addressBookService, Contact contactToEdit)
         {
             InitializeComponent();
-            // Skapa en ny instans av AddressBookService
-            var addressBookService = new AddressBookService();
 
-            var viewModel = new AddContactViewModel(addressBookService);
-            viewModel.CloseAction = new Action(this.Close); // Ställer in CloseAction
+            var viewModel = new EditContactViewModel(addressBookService, contactToEdit);
+            viewModel.CloseAction = new Action(this.Close);
             DataContext = viewModel;
         }
     }

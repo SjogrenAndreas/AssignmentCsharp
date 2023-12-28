@@ -9,7 +9,7 @@
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Content="Add Contact" Command="{Binding OpenAddContactWindowCommand}"/>
             <Button Content="View All Contacts" Command="{Binding ViewAllContactsCommand}"/>
             <Button Content="Search Contact" Command="{Binding SearchContactCommand}"/>

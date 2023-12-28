@@ -2,6 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Windows.Controls; // Används för att hantera Frame-navigering
 using System; // För EventHandler
+using AdressBook_WPF.Models;
+using AdressBook_WPF.Views;
+using AdressBook_WPF.ViewModel;
 
 namespace AdressBook_WPF.ViewModel
 {

@@ -22,15 +22,6 @@ namespace AdressBook_WPF.Views
                     this.NavigationService.GoBack();
                 }
             };
-
-           
-            viewModel.SaveAction = (updatedContact) => 
-            {  
-                if (this.NavigationService != null && this.NavigationService.CanGoBack)
-                {
-                    this.NavigationService.GoBack();
-                }
-            };
         }
     }
 }

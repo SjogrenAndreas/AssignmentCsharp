@@ -19,7 +19,7 @@ namespace AdressBook_WPF.Views
     /// <summary>
     /// Interaction logic for AddContactView.xaml
     /// </summary>
-    public partial class AddContactView : Window
+    public partial class AddContactView : Page
     {
         public AddContactView()
         {

@@ -1,11 +1,11 @@
-﻿<Window x:Class="AdressBook_WPF.Views.ViewAllContactsView"
+﻿<Page x:Class="AdressBook_WPF.Views.ViewAllContactsView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdressBook_WPF.Views"
         mc:Ignorable="d"
-        Title="ViewAllContactsView" Height="450" Width="600">
+        Title="ViewAllContactsView" >
     <Grid>
         <ListView x:Name="ContactsListView" ItemsSource="{Binding Contacts}">
             <ListView.View>
@@ -38,4 +38,4 @@
             <Button Content="Back to Main" Command="{Binding GoBackToMainCommand}" Width="100" Margin="5"/>
         </StackPanel>
     </Grid>
-</Window>
+</Page>

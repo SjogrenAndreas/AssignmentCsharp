@@ -1,33 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using AdressBook_WPF.Models;
+﻿using AdressBook_WPF.Models;
 using AdressBook_WPF.Services;
+using AdressBook_WPF.ViewModel;
+using System.Windows.Controls;
 
 namespace AdressBook_WPF.Views
 {
-    /// <summary>
-    /// Interaction logic for EditContactView.xaml
-    /// </summary>
-    public partial class EditContactView : Window
+    public partial class EditContactView : Page
     {
         public EditContactView(AddressBookService addressBookService, Contact contactToEdit)
         {
             InitializeComponent();
 
+            // Skapa ViewModel och sätt som DataContext
             var viewModel = new EditContactViewModel(addressBookService, contactToEdit);
-            viewModel.CloseAction = new Action(this.Close);
-            DataContext = viewModel;
+            this.DataContext = viewModel;
+
+            // Hantera stängning av sidan
+            viewModel.CloseAction = () => {
+                if (this.NavigationService != null && this.NavigationService.CanGoBack)
+                {
+                    this.NavigationService.GoBack();
+                }
+            };
+
+           
+            viewModel.SaveAction = (updatedContact) => 
+            {  
+                if (this.NavigationService != null && this.NavigationService.CanGoBack)
+                {
+                    this.NavigationService.GoBack();
+                }
+            };
         }
     }
 }

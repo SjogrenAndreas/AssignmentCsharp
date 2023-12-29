@@ -4,21 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdressBook_WPF"
-        
         xmlns:models ="clr-namespace:AdressBook_WPF.Models"
         xmlns:viewmodels ="clr-namespace:AdressBook_WPF.ViewModel"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         
-        
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="300">
-    <Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        Title="MainWindow" Height="450" Width="800">
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
             <Button Content="Add Contact" Margin="5" Command="{Binding OpenAddContactViewCommand}"/>
             <Button Content="View All Contacts" Margin="5" Command="{Binding OpenViewAllContactsViewCommand}"/>
             <Button Content="Search Contact" Margin="5" Command="{Binding OpenSearchContactViewCommand}"/>
         </StackPanel>
+
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
     </Grid>
 </Window>

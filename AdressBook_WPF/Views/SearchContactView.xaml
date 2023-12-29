@@ -1,4 +1,4 @@
-﻿<Window x:Class="AdressBook_WPF.Views.SearchContactView"
+﻿<Page x:Class="AdressBook_WPF.Views.SearchContactView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Search Contact" Height="200" Width="400">
@@ -35,4 +35,4 @@
             <Button Content="Cancel" Margin="5" Width="80" Command="{Binding CancelCommand}"/>
         </StackPanel>
     </Grid>
-</Window>
+</Page>

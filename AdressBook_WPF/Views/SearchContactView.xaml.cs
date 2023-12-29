@@ -8,7 +8,7 @@ namespace AdressBook_WPF.Views
     /// <summary>
     /// Interaction logic for SearchContactView.xaml
     /// </summary>
-    public partial class SearchContactView : Window
+    public partial class SearchContactView : Page
     {
         public SearchContactView()
         {

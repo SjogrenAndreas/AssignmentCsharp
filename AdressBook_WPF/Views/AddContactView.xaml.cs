@@ -1,34 +1,24 @@
 ﻿using AdressBook_WPF.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 
 namespace AdressBook_WPF.Views
 {
-    /// <summary>
-    /// Interaction logic for AddContactView.xaml
-    /// </summary>
     public partial class AddContactView : Page
     {
         public AddContactView()
         {
             InitializeComponent();
-            // Skapa en ny instans av AddressBookService
             var addressBookService = new AddressBookService();
-
             var viewModel = new AddContactViewModel(addressBookService);
-            viewModel.CloseAction = new Action(this.Close); // Ställer in CloseAction
+            viewModel.CloseAction = new Action(() => {
+                // Använd NavigationService för att navigera tillbaka eller till en annan sida
+                if (this.NavigationService.CanGoBack)
+                {
+                    this.NavigationService.GoBack();
+                }
+                // Annars, hantera hur sidan ska stängas eller vad som ska hända när "stäng" begärs
+            });
             DataContext = viewModel;
         }
     }

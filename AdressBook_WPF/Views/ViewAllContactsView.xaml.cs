@@ -17,7 +17,7 @@ namespace AdressBook_WPF.Views
     /// <summary>
     /// Interaction logic for ViewAllContactsView.xaml
     /// </summary>
-    public partial class ViewAllContactsView : Window
+    public partial class ViewAllContactsView : Page
     {
         public ViewAllContactsView()
         {

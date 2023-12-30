@@ -1,40 +1,36 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using AdressBook_WPF.ViewModel;
+using AdressBook_WPF.Models;
+using AdressBook_WPF.Services;
 
 namespace AdressBook_WPF.Views
 {
-    /// <summary>
-    /// Interaction logic for SearchContactView.xaml
-    /// </summary>
     public partial class SearchContactView : Page
     {
         public SearchContactView()
         {
             InitializeComponent();
-        }
 
-        private void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null && textBox.Text == "Enter Email to Search")
+            // Definiera åtgärder
+            Action<Contact> navigateToContactDetails = (contact) =>
             {
-                textBox.Text = "";
-                textBox.FontStyle = FontStyles.Normal;
-                textBox.Foreground = Brushes.Black;
-            }
-        }
+                // Kod för att navigera till kontaktdetaljer
+            };
 
-        private void EmailTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+            Action navigateToMain = () =>
             {
-                textBox.Text = "Enter Email to Search";
-                textBox.FontStyle = FontStyles.Italic;
-                textBox.Foreground = Brushes.Gray;
-            }
+                // Kod för att navigera tillbaka till huvudvyn
+                if (this.NavigationService != null && this.NavigationService.CanGoBack)
+                {
+                    this.NavigationService.GoBack();
+                }
+            };
+
+            // Skapa en instans av SearchContactViewModel med de definierade åtgärderna
+            var viewModel = new SearchContactViewModel(new AddressBookService(), navigateToContactDetails, navigateToMain);
+            this.DataContext = viewModel;
         }
     }
 }

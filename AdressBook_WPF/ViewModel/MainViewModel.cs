@@ -51,7 +51,10 @@ namespace AdressBook_WPF.ViewModel
 
         private void NavigateToMain()
         {
-            MainFrame.Navigate(new MainWindow());
+            if (MainFrame.CanGoBack)
+            {
+                MainFrame.GoBack();
+            }
         }
     }
 }

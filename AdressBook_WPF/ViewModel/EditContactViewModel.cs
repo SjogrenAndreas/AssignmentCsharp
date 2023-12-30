@@ -29,7 +29,7 @@ public partial class EditContactViewModel : ObservableObject
     public EditContactViewModel(AddressBookService addressBookService, Contact contactToEdit)
     {
         _addressBookService = addressBookService;
-        _contact = contactToEdit; // Sätt referensen till den befintliga kontakten
+        _contact = contactToEdit; //  referensen till den befintliga kontakten
 
         // Initialisera egenskaper med värden från den befintliga kontakten
         FirstName = contactToEdit.FirstName;
@@ -44,7 +44,7 @@ public partial class EditContactViewModel : ObservableObject
     [RelayCommand]
     private void SaveEdit()
     {
-        // Skapa ett uppdaterat Contact-objekt
+        // Skapar ett uppdaterat Contact-objekt
         var updatedContact = new Contact
         {
             Id = _contact.Id, // Behåll samma ID
@@ -57,7 +57,7 @@ public partial class EditContactViewModel : ObservableObject
             City = City
         };
 
-        // Uppdatera kontakten via service
+        // Uppdaterar kontakten via service
         _addressBookService.UpdateContact(updatedContact);
         CloseAction?.Invoke(); // Stänger fönstret
     }

@@ -12,12 +12,12 @@ namespace AdressBook_WPF.Views
             var addressBookService = new AddressBookService();
             var viewModel = new AddContactViewModel(addressBookService);
             viewModel.CloseAction = new Action(() => {
-                // Använd NavigationService för att navigera tillbaka eller till en annan sida
+                // NavigationService för att navigera tillbaka eller till en annan sida
                 if (this.NavigationService.CanGoBack)
                 {
                     this.NavigationService.GoBack();
                 }
-                // Annars, hantera hur sidan ska stängas eller vad som ska hända när "stäng" begärs
+                
             });
             DataContext = viewModel;
         }

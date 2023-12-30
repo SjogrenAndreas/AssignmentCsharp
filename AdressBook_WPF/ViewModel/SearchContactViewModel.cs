@@ -27,7 +27,7 @@ public partial class SearchContactViewModel : ObservableObject
     [RelayCommand]
     private void Search()
     {
-        // Kontrollera först om sökfältet är tomt
+        // Kontrollerar först om sökfältet är tomt
         if (string.IsNullOrWhiteSpace(EmailToSearch))
         {
             MessageBox.Show("Please enter an email address to search.", "Search Error", MessageBoxButton.OK);

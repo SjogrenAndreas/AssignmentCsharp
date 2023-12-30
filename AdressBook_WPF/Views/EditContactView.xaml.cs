@@ -11,7 +11,7 @@ namespace AdressBook_WPF.Views
         {
             InitializeComponent();
 
-            // Skapa ViewModel och sätt som DataContext
+            
             var viewModel = new EditContactViewModel(addressBookService, contactToEdit);
             this.DataContext = viewModel;
 

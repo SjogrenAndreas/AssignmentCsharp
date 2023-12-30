@@ -13,22 +13,22 @@ namespace AdressBook_WPF.Views
         {
             InitializeComponent();
 
-            // Definiera åtgärder
+            
             Action<Contact> navigateToContactDetails = (contact) =>
             {
-                // Kod för att navigera till kontaktdetaljer
+              
             };
 
             Action navigateToMain = () =>
             {
-                // Kod för att navigera tillbaka till huvudvyn
+                
                 if (this.NavigationService != null && this.NavigationService.CanGoBack)
                 {
                     this.NavigationService.GoBack();
                 }
             };
 
-            // Skapa en instans av SearchContactViewModel med de definierade åtgärderna
+           
             var viewModel = new SearchContactViewModel(new AddressBookService(), navigateToContactDetails, navigateToMain);
             this.DataContext = viewModel;
         }

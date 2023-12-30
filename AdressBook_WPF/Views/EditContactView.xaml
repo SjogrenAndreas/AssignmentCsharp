@@ -40,29 +40,37 @@
             <!-- Buttons Panel -->
         </Grid.RowDefinitions>
 
+        <!-- Bindning för FirstName -->
         <TextBlock Text="First Name" Grid.Row="0" Margin="5"/>
-        <TextBox x:Name="FirstNameTextBox" Grid.Row="1" Margin="5"/>
+        <TextBox x:Name="FirstNameTextBox" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Margin="5"/>
 
+        <!-- Bindning för LastName -->
         <TextBlock Text="Last Name" Grid.Row="2" Margin="5"/>
-        <TextBox x:Name="LastNameTextBox" Grid.Row="3" Margin="5"/>
+        <TextBox x:Name="LastNameTextBox" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Margin="5"/>
 
+        <!-- Bindning för Email -->
         <TextBlock Text="Email" Grid.Row="4" Margin="5"/>
-        <TextBox x:Name="EmailTextBox" Grid.Row="5" Margin="5"/>
+        <TextBox x:Name="EmailTextBox" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Margin="5"/>
 
+        <!-- Bindning för PhoneNumber -->
         <TextBlock Text="Phone Number" Grid.Row="6" Margin="5"/>
-        <TextBox x:Name="PhoneNumberTextBox" Grid.Row="7" Margin="5"/>
+        <TextBox x:Name="PhoneNumberTextBox" Text="{Binding PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="7" Margin="5"/>
 
+        <!-- Bindning för StreetName -->
         <TextBlock Text="Street Name" Grid.Row="8" Margin="5"/>
-        <TextBox x:Name="StreetNameTextBox" Grid.Row="9" Margin="5"/>
+        <TextBox x:Name="StreetNameTextBox" Text="{Binding StreetName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="9" Margin="5"/>
 
+        <!-- Bindning för PostalCode -->
         <TextBlock Text="Postal Code" Grid.Row="10" Margin="5"/>
-        <TextBox x:Name="PostalCodeTextBox" Grid.Row="11" Margin="5"/>
+        <TextBox x:Name="PostalCodeTextBox" Text="{Binding PostalCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="11" Margin="5"/>
 
+        <!-- Bindning för City -->
         <TextBlock Text="City" Grid.Row="12" Margin="5"/>
-        <TextBox x:Name="CityTextBox" Grid.Row="13" Margin="5"/>
+        <TextBox x:Name="CityTextBox" Text="{Binding City, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="13" Margin="5"/>
+
 
         <StackPanel Grid.Row="14" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-            <Button Content="Save Edit" Margin="5" Width="80" Command="{Binding SaveCommand}"/>
+            <Button Content="Save Edit" Margin="5" Width="80" Command="{Binding SaveEditCommand}"/>
             <Button Content="Cancel" Margin="5" Width="80" Command="{Binding CancelCommand}"/>
             <Button Content="Remove Contact" Margin="5" Width="120" Command="{Binding RemoveContactCommand}"/>
         </StackPanel>

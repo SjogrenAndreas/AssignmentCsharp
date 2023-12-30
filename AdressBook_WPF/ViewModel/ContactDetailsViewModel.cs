@@ -8,7 +8,7 @@ public partial class ContactDetailsViewModel : ObservableObject
 {
     private readonly Action<Contact, AddressBookService> _navigateToEditContact;
     private readonly AddressBookService _addressBookService;
-    public Action CloseAction { get; set; }
+    public Action CloseAction { get; set; } // En action för att stänga fönstret
 
     public ContactDetailsViewModel(Contact contact, AddressBookService addressBookService, Action<Contact, AddressBookService> navigateToEditContact)
     {
@@ -21,9 +21,14 @@ public partial class ContactDetailsViewModel : ObservableObject
     private Contact _contact;
 
     [RelayCommand]
+    private void GoBack()
+    {
+        CloseAction?.Invoke(); // Stänger fönstret och går tillbaka
+    }
+
+    [RelayCommand]
     private void EditContact()
     {
         _navigateToEditContact?.Invoke(Contact, _addressBookService);
-        CloseAction?.Invoke();
     }
 }

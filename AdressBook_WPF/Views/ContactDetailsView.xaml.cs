@@ -14,20 +14,19 @@ namespace AdressBook_WPF.Views
             var viewModel = new ContactDetailsViewModel(contact, addressBookService, NavigateToEditContact);
             this.DataContext = viewModel;
 
-            // Sätt upp en åtgärd för att navigera tillbaka
-            viewModel.CloseAction = () => {
-                if (this.NavigationService != null && this.NavigationService.CanGoBack)
+            viewModel.CloseAction = () =>
+            {
+                if (NavigationService != null && NavigationService.CanGoBack)
                 {
-                    this.NavigationService.GoBack();
+                    NavigationService.GoBack();
                 }
             };
         }
 
         private void NavigateToEditContact(Contact contact, AddressBookService addressBookService)
         {
-            
             var editView = new EditContactView(addressBookService, contact);
-            this.NavigationService.Navigate(editView);
+            NavigationService.Navigate(editView);
         }
     }
 }

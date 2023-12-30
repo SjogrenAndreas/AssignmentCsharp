@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdressBook_Console", "Adres
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdressBook_Console.Tests", "AdressBook_Console.Tests\AdressBook_Console.Tests.csproj", "{28A891DE-909D-4D0A-A073-C46298C7A744}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdressBook_WPF", "AdressBook_WPF\AdressBook_WPF.csproj", "{08D64ED8-72CC-4DFB-8C27-75C98AEE0CAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdressBook_WPF", "AdressBook_WPF\AdressBook_WPF.csproj", "{08D64ED8-72CC-4DFB-8C27-75C98AEE0CAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

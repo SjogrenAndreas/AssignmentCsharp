@@ -27,8 +27,20 @@ public partial class SearchContactViewModel : ObservableObject
     [RelayCommand]
     private void Search()
     {
-        var foundContact = _addressBookService.GetAllContacts()
-                            .FirstOrDefault(c => c.Email.Equals(EmailToSearch, StringComparison.OrdinalIgnoreCase));
+        if (string.IsNullOrWhiteSpace(EmailToSearch))
+        {
+            MessageBox.Show("Please enter an email address to search.", "Search Error", MessageBoxButton.OK);
+            return;
+        }
+
+        var contacts = _addressBookService.GetAllContacts();
+        if (contacts == null)
+        {
+            MessageBox.Show("Error retrieving contacts.", "Search Error", MessageBoxButton.OK);
+            return;
+        }
+
+        var foundContact = contacts.FirstOrDefault(c => c.Email.Equals(EmailToSearch, StringComparison.OrdinalIgnoreCase));
         if (foundContact != null)
         {
             _navigateToContactDetails?.Invoke(foundContact);
@@ -38,6 +50,7 @@ public partial class SearchContactViewModel : ObservableObject
             MessageBox.Show("Could not find a contact with that email address", "Search Result", MessageBoxButton.OK);
         }
     }
+
 
     [RelayCommand]
     private void Cancel()

@@ -27,27 +27,39 @@ public partial class SearchContactViewModel : ObservableObject
     [RelayCommand]
     private void Search()
     {
+        // Kontrollera först om sökfältet är tomt
         if (string.IsNullOrWhiteSpace(EmailToSearch))
         {
             MessageBox.Show("Please enter an email address to search.", "Search Error", MessageBoxButton.OK);
             return;
         }
 
-        var contacts = _addressBookService.GetAllContacts();
-        if (contacts == null)
+        // Försök hämta kontaktlistan
+        try
         {
-            MessageBox.Show("Error retrieving contacts.", "Search Error", MessageBoxButton.OK);
-            return;
-        }
+            var contacts = _addressBookService.GetAllContacts();
+            if (contacts == null || !contacts.Any())
+            {
+                MessageBox.Show("No contacts available to search.", "Search Error", MessageBoxButton.OK);
+                return;
+            }
 
-        var foundContact = contacts.FirstOrDefault(c => c.Email.Equals(EmailToSearch, StringComparison.OrdinalIgnoreCase));
-        if (foundContact != null)
-        {
-            _navigateToContactDetails?.Invoke(foundContact);
+            // Sök efter kontakten
+            var foundContact = contacts.FirstOrDefault(c => c != null && c.Email != null && c.Email.ToLower() == EmailToSearch.ToLower());
+
+            if (foundContact != null)
+            {
+                _navigateToContactDetails?.Invoke(foundContact);
+            }
+            else
+            {
+                MessageBox.Show("Could not find a contact with that email address", "Search Result", MessageBoxButton.OK);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            MessageBox.Show("Could not find a contact with that email address", "Search Result", MessageBoxButton.OK);
+            
+            MessageBox.Show($"An error occurred while searching: {ex.Message}", "Search Error", MessageBoxButton.OK);
         }
     }
 
@@ -58,3 +70,4 @@ public partial class SearchContactViewModel : ObservableObject
         _navigateToMain?.Invoke();
     }
 }
+
